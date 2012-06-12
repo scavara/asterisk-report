@@ -1,0 +1,6 @@
+this combo of small scripts should pull a report from asterisk cdr record
+for previous month and mail it to the user. it uses asterisk 'user field (17.)' of cdr record
+for specific filtering. cdr records are on 'client'. it initiates the main
+scripts and mail it to the user from 'server' using cron.
+
+
