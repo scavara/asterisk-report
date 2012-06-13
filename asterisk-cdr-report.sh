@@ -23,10 +23,21 @@ done
 #total duration in minutes
 totalmin=`expr $totalsec / 60`
 
+#average duration
+avgduration=`echo "scale=2;$totalmin/$BR_POZIVA_TOTAL" | bc`
+
+#unanswered calls
+unaswered=`grep "NO ANSWER" $TMPDIR/$TMPFILE | wc -l`
+if [ -z "$unaswered" ]; then unanswered=0; fi
+
+
 echo "Asterisk CDR report for $(hostname) 
 Month/Year: $MONTH/$YEAR
 Total number of USERFIELD filtered calls: $BR_POZIVA_TOTAL
 Total duration of USERFIELD filtered calls in minutes: $totalmin
+Total number of unanswered calls: $unaswered
+Average call duration: $avgduration (min)
+
 --
 YOUR SIGNATURE
 
